@@ -8,8 +8,7 @@ class Application
       new_item = req.path.split("/items/").last #turn /items/itemname into itemname
          if @@items.find{|item| item.name == new_item}
             resp.write item.price
-          end
-      else
+          else
           resp.write "Item not found"
           resp.status = 400
       end
