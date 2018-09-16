@@ -6,7 +6,7 @@ class Application
 
     if req.path.match("/items/")
       new_item = req.path.split("/items/").last #turn /items/itemname into itemname
-         found_item = @@items.find{|item| item.name == new_item}
+         if @@items.find{|item| item.name == new_item}
             resp.write found_item.price
       else
           resp.write "Item not found"
