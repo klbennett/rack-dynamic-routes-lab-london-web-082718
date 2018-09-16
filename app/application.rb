@@ -6,7 +6,7 @@ class Application
 
     if req.path.match("/items/")
       new_item = req.path.split("/items/").last #turn /items/itemname into itemname
-         found_item = @@items.find{|item| item.title == new_item}
+         found_item = @@items.find{|item| item.name == new_item}
            if found_item.nil?
              resp.write "Item not found"
              resp.status = 404
