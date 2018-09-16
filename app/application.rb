@@ -4,7 +4,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path=="/items/"
+    if req.path.match("/items/")
       new_item = req.path.split("/items/").last #turn /items/itemname into itemname
          found_item = @@item.find{|item| item.title == new_item}
            if found_item.nil?
